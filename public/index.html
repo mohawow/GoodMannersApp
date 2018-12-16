@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Good Manners</title>
+    <meta name="description" content="Good Manners tasks and rewards">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Good Manners App </h1>
+        <p>Instilling early on to practice courteous manners and good habits like hygiene, homework routine, early bedtimes, healthy eating, and saying “please” and “thank you” will stay with them far beyond the early years! </p>
+      </header>
+      <main>
+        <section>
+            <form id="js-tasks-form">
+                <label for="task-name">Choose a task</label>
+                <select id="task-select">
+                    <option value="">--Please choose one task--</option>
+                    <option value="Say “Please” when asking">Say “Please” when asking</option>
+                    <option value="Say “Thank you” when receiving">Say “Thank you” when receiving</option>
+                    <option value="Show respect for others and elders">Show respect for others and elders</option>
+                    <option value="Let others finish before you speak">Let others finish before you speak</option>
+                    <option value="Return things you have borrowed from others">Return things you have borrowed from others</option>
+                    <option value="Ask permission before touching or taking things">Ask permission before touching or taking things</option>
+                </select>
+                <br>
+                <label for="reward-list-entry">Create your reward</label>
+                <input type="text" name="reward-list-entry" id="js-reward-list-entry" placeholder="e.g., swimming pool">
+                <br>
+                <button type="submit">Assign</button>
+            </form>
+            <div>
+                <ul class="js-tasks-list">
+                 </ul>
+               <div>
+        </section>
+      </main>
+    </div>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script src="client-side-reward2.js"></script>
+    <!-- <script src="/main.js"></script> -->
+  </body>
+</html>

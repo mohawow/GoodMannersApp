@@ -1,0 +1,23 @@
+[
+    {
+        "_id": ObjectId("000000000000000000000001"),
+        "username": "Mohamed Ali1",
+        "password": "******",
+        "rewardsGranted": [ObjectId("0000000000000000000000010")],
+        "tasks": [ObjectId("000000000000000000000004")]
+    },
+    {
+        "_id":ObjectId("000000000000000000000002"),
+        "username": "Mohamed Ali2",
+        "password": "******",
+        "rewardsGranted": [],
+        "tasks": [ObjectId("000000000000000000000005")]
+    },
+    {
+        "_id":ObjectId("000000000000000000000003"),
+        "username": "Mohamed Ali3",
+        "password": "******",
+        "rewardsGranted": [ObjectId("0000000000000000000000012")],
+        "tasks": [ObjectId("000000000000000000000006")]
+    }
+]
