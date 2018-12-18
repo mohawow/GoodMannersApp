@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-const userRouter = require('./routes/users');
+const userRouter = require('./routes/user');
 const taskRouter = require('./routes/tasks');
 const rewardRouter = require('./routes/rewards')
 const { DATABASE_URL, PORT } = require('./config');

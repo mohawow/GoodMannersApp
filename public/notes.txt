@@ -54,10 +54,11 @@ TIME_LINE:
 HW: (redo addRewardItem) 
 
 
+npx kill-port 27017
 
 mongoimport --db good-manners-app --collection users --drop --file ~/thinkful_projects/GoodMannersApp-client-side/users.json --jsonArray
 
 
-mongoimport --db good-manners-app --collection users --drop --file ~/thinkful_projects/GoodMannersApp-client-side/sampleData.json --jsonArray
+mongoimport --db good-manners-app --collection users --drop --file ~/thinkful_projects/GoodMannersApp-client-side/seed-data.json 
 
 

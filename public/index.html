@@ -1,52 +1,101 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Good Manners</title>
-    <meta name="description" content="Good Manners tasks and rewards">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-
-    <link rel="stylesheet" href="./style.css">
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <h1>Good Manners App </h1>
-        <p>Instilling early on to practice courteous manners and good habits like hygiene, homework routine, early bedtimes, healthy eating, and saying “please” and “thank you” will stay with them far beyond the early years! </p>
-      </header>
-      <main>
-        <section>
-            <form id="js-tasks-form">
-                <label for="task-name">Choose a task</label>
-                <select id="task-select">
-                    <option value="">--Please choose one task--</option>
-                    <option value="Say “Please” when asking">Say “Please” when asking</option>
-                    <option value="Say “Thank you” when receiving">Say “Thank you” when receiving</option>
-                    <option value="Show respect for others and elders">Show respect for others and elders</option>
-                    <option value="Let others finish before you speak">Let others finish before you speak</option>
-                    <option value="Return things you have borrowed from others">Return things you have borrowed from others</option>
-                    <option value="Ask permission before touching or taking things">Ask permission before touching or taking things</option>
-                </select>
-                <br>
-                <label for="reward-list-entry">Create your reward</label>
-                <input type="text" name="reward-list-entry" id="js-reward-list-entry" placeholder="e.g., swimming pool">
-                <br>
-                <button type="submit">Assign</button>
-            </form>
-            <div>
-                <ul class="js-tasks-list">
-                 </ul>
-               <div>
-        </section>
-      </main>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Good Manners App</title>
+</head>
+<body>
+<div class="wraper">
+    <div class="header">
+        <div class="logo">
+            <img src=" " alt="">
+        </div>
+        <div class="menuitems">
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Archive</a></li>
+                <li><a href="">Dashboard</a></li>
+               
+            </ul>
+        </div>
     </div>
-    <script
-    src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
-    <script src="client-side-reward2.js"></script>
-    <!-- <script src="/main.js"></script> -->
-  </body>
+    <div class="mainbody">
+        <div class="taskboxadd">
+            <span>+</span>
+        </div>
+        <div class="taskboxgeneral">
+            <p class="first">Task: <span>Brush Teeth</span></p>
+            <p class="first">Reward: <span>Go to park</span></p>
+            <p class="first">Day/Time: <span>11/12/2018 &nbsp; &nbsp; 4:00 PM</span></p>
+            <p class="second"><span><a href="" class="edit">Edit</a></span>  <span><a href="" class="delete">Delete</a></span> <span><a
+                    href="" class="completed">Completed</a></span></p>
+        </div>
+        <div class="taskboxgeneral">
+            <p class="first">Task: <span>Brush Teeth</span></p>
+            <p class="first">Reward: <span>Go to park</span></p>
+            <p class="first">Day/Time: <span>11/12/2018 &nbsp; &nbsp; 4:00 PM</span></p>
+            <p class="second"><span><a href="" class="edit">Edit</a></span>  <span><a href="" class="delete">Delete</a></span> <span><a
+                    href="" class="completed">Completed</a></span></p>
+        </div>
+        <div class="taskboxgeneral">
+            <p class="first">Task: <span>Brush Teeth</span></p>
+            <p class="first">Reward: <span>Go to park</span></p>
+            <p class="first">Day/Time: <span>11/12/2018 &nbsp; &nbsp; 4:00 PM</span></p>
+            <p class="second"><span><a href="" class="edit">Edit</a></span>  <span><a href="" class="delete">Delete</a></span> <span><a
+                    href="" class="completed">Completed</a></span></p>
+        </div>
+        <div class="taskboxgeneral">
+            <p class="first">Task: <span>Brush Teeth</span></p>
+            <p class="first">Reward: <span>Go to park</span></p>
+            <p class="first">Day/Time: <span>11/12/2018 &nbsp; &nbsp; 4:00 PM</span></p>
+            <p class="second"><span><a href="" class="edit">Edit</a></span>  <span><a href="" class="delete">Delete</a></span> <span><a
+                    href="" class="completed">Completed</a></span></p>
+        </div>
+    </div>
+    <div class="modalBox modal1">
+        <form action="">
+            <label for="taskname">Choose The Task:</label>
+            <select name="" id="taskname">
+                <option value="">Select a task name</option>
+                <option value="">task 1</option>
+                <option value="">task 2</option>
+            </select>
+            <br>
+            <label for="reward">Create Reward:</label>
+            <input type="text" id="reward">
+            <br>
+            <button type="submit">Assign</button>
+        </form>
+    </div>
+    <div class="modalBox modal2">
+        <form action="">
+            <label for="task">Task Name:</label>
+            <input type="text" id="task">
+            <br>
+            <label for="reward1">Create Reward:</label>
+            <input type="text" id="reward1">
+            <br>
+            <button type="submit">Assign</button>
+        </form>
+    </div>
+    <div class="modalBox modal3">
+        <p>Are you sure want to delete?</p>
+        <button>Yes</button> &nbsp;&nbsp;&nbsp;<button>No</button>
+    </div>
+    <div class="modalBox modal4">
+        <p>Congratulations! Task Completed.</p>
+        <p>Reward Granted.</p>
+        <button>Ok</button>
+    </div>
+</div>
+<div class="overlay"></div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+        crossorigin="anonymous"></script>
+<script src="script.js"></script>
+</body>
 </html>

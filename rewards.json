@@ -1,5 +1,5 @@
 [
     {"_id":ObjectId("0000000000000000000000010"), "type":"rewardType1"},
     {"_id":ObjectId("0000000000000000000000011"), "type":"rewardType2"},
-    {"_id":ObjectId("0000000000000000000000012"), "type":"rewardType3"},
+    {"_id":ObjectId("0000000000000000000000012"), "type":"rewardType3"}
 ]

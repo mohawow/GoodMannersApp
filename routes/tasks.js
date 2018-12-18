@@ -6,8 +6,7 @@ const app = express();
 const router = express.Router();
 const mongoose = require('mongoose');
 const { Task } = require('./models/task');
-const { User } = require('./models/user');
-const { Reward } = require('./models/reward');
+
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 const middleware = require("./middleware/index");
@@ -15,7 +14,7 @@ const middleware = require("./middleware/index");
 mongoose.Promise = global.Promise;
 
 //Show all tasks
-router.get('/tasks', (req, res) => {
+router.get('/', (req, res) => {
   Task
     .find()
     .then(tasks => {
@@ -30,8 +29,8 @@ router.get('/tasks', (req, res) => {
 });
 
 //Show an individual task
-router.get('/tasks:id', (req, res) => {
-  Match
+router.get('/:id', (req, res) => {
+  Task
     .findById(req.params.id)
     .then(task => res.json(task.serialize()))
     .catch(err => {
@@ -58,7 +57,7 @@ router.post('/tasks', (req, res) => {
     reward: req.body.reward,
     complete: req.body.complete
   })
-  .then(Task => { 
+  .then(Task  => { 
     res.status(201).json(Task.serialize());
   })
   .catch(err => {
@@ -68,7 +67,7 @@ router.post('/tasks', (req, res) => {
 })
 
 //Update a task 
-router.put('/task:id', (req, res) => {
+router.put('/id', (req, res) => {
     console.log(req.body);
     return res.status(400).json({ message: message });
   })
@@ -81,12 +80,13 @@ router.put('/task:id', (req, res) => {
       }
     Task
       .findByIdAndUpdate(req.params.id, { $set: toUpdate})
-      .then(match => res.status(204).end())  
+      .then(match => res.status(204).end()
+              )  
       .catch(err => res.status(500).json({error: 'something went wrong'}));
 });
 
 //Delete a task 
-router.delete('/task:id',  (req, res) => {
+router.delete('/id',  (req, res) => {
     console.log(req.params.id);
     Task
     .findByIdAndDelete(req.params.id)
@@ -94,5 +94,6 @@ router.delete('/task:id',  (req, res) => {
     .catch(err => res.status(500).json({error: 'something went wrong'}));
   });
 
-
 module.exports = router;
+// find task get id
+// 
