@@ -2,12 +2,12 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 const mongoose = require('mongoose');
-const {Reward} = require('./models/reward');
-const {rewardGranted} = require('./models/rewardGranted');
+const {Reward} = require('../models/reward');
+const {rewardType} = require('../models/rewardType');
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 
-const middleware = require("./middleware/index");
+const middleware = require("../middleware/index");
 mongoose.Promise = global.Promise;
 
 //Show all rewards
@@ -84,7 +84,7 @@ router.put('/reward/:id',  (req, res) => {
 
 
 //Delete a reward 
-router.delete('/reward/:id', jwtAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
     console.log(req.params.id);
     Reward
     .findByIdAndRemove(req.params.id)

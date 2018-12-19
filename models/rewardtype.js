@@ -4,8 +4,8 @@ const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
 // Reward Type and it's stamp
-const rewardTypeSchema = new mongoose.Schema({
-	"name": {type:String, required: true},
+const rewardTypeSchema = mongoose.Schema({
+	name: {type:String, required: true},
 });
 rewardTypeSchema.set('timestamps', true),
 
@@ -16,6 +16,6 @@ rewardTypeSchema.methods.serialize = function () {
     };
 };
 
-const rewardType = mongoose.model('rewardType', rewardTypeSchema);
+const rewardType = mongoose.model('RewardType', rewardTypeSchema);
 
 module.exports = {rewardType};

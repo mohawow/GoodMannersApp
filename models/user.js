@@ -2,7 +2,7 @@
 
 const mongoose = require("mongoose");
 const bcrypt = require('bcryptjs');
-require('mongoose-type-email');
+// require('mongoose-type-email');
 mongoose.Promise = global.Promise;
 
 
@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    "email": { type: mongoose.SchemaTypes.Email, default: 'name@name.com' },
+    // "email": { type: mongoose.SchemaTypes.Email, default: 'name@name.com' },
     "password": {
         type: String,
         required: true
@@ -44,7 +44,7 @@ userSchema.methods.serialize = function () {
         id: this._id,
         user: this.fullName,
         username: this.username,
-        email: this.email,
+        // email: this.email,
         rewardsGranted: this.rewardsGranted,
         tasks: this.tasks
     };

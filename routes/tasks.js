@@ -2,14 +2,13 @@
 'use strict';
 
 const express = require('express');
-const app = express();
 const router = express.Router();
 const mongoose = require('mongoose');
-const { Task } = require('./models/task');
+const { Task } = require('../models/task');
 
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
-const middleware = require("./middleware/index");
+const middleware = require("../middleware/index");
 
 mongoose.Promise = global.Promise;
 
@@ -69,8 +68,6 @@ router.post('/tasks', (req, res) => {
 //Update a task 
 router.put('/id', (req, res) => {
     console.log(req.body);
-    return res.status(400).json({ message: message });
-  })
     const toUpdate = {};
     const updateableFields = ['name', 'reward', 'complete'];
 
@@ -78,6 +75,7 @@ router.put('/id', (req, res) => {
       if (field in req.body) {
         toUpdate[field] = req.body[field];
       }
+    })
     Task
       .findByIdAndUpdate(req.params.id, { $set: toUpdate})
       .then(match => res.status(204).end()
@@ -95,5 +93,3 @@ router.delete('/id',  (req, res) => {
   });
 
 module.exports = router;
-// find task get id
-// 

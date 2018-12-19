@@ -6,7 +6,7 @@ mongoose.Promise = global.Promise;
 
 const taskSchema = new mongoose.Schema({ 
     "name": { type: String, default: '' },
-	"reward":{type: mongoose.Schema.Types.ObectId, "ref":"Reward"},
+	"reward":{type: mongoose.Schema.Types.ObjectId, "ref":"Reward"},
 	"complete":{type:Boolean, default:false}
 });
 

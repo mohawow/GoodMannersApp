@@ -4,7 +4,6 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require ('body-parser');
-const router = express.Router();
 
 mongoose.Promise = global.Promise;
 
@@ -19,13 +18,14 @@ app.use(bodyParser.json());
 const userRouter = require('./routes/user');
 const taskRouter = require('./routes/tasks');
 const rewardRouter = require('./routes/rewards')
+const rewardTypeRouter = require('./routes/rewardType')
 const { DATABASE_URL, PORT } = require('./config');
 
 app.use(express.static('public'));
 app.use('/users', userRouter);
 app.use('/tasks', taskRouter)
 app.use('/rewards', rewardRouter)
-app.use('/completed', rewardGrantedRouter)
+app.use('/completed', rewardTypeRouter)
 
 
 app.use('*', (req, res) => {
