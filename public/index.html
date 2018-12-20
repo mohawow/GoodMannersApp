@@ -34,30 +34,9 @@
             <p class="second"><span><a href="" class="edit">Edit</a></span>  <span><a href="" class="delete">Delete</a></span> <span><a
                     href="" class="completed">Completed</a></span></p>
         </div>
-        <div class="taskboxgeneral">
-            <p class="first">Task: <span>Brush Teeth</span></p>
-            <p class="first">Reward: <span>Go to park</span></p>
-            <p class="first">Day/Time: <span>11/12/2018 &nbsp; &nbsp; 4:00 PM</span></p>
-            <p class="second"><span><a href="" class="edit">Edit</a></span>  <span><a href="" class="delete">Delete</a></span> <span><a
-                    href="" class="completed">Completed</a></span></p>
-        </div>
-        <div class="taskboxgeneral">
-            <p class="first">Task: <span>Brush Teeth</span></p>
-            <p class="first">Reward: <span>Go to park</span></p>
-            <p class="first">Day/Time: <span>11/12/2018 &nbsp; &nbsp; 4:00 PM</span></p>
-            <p class="second"><span><a href="" class="edit">Edit</a></span>  <span><a href="" class="delete">Delete</a></span> <span><a
-                    href="" class="completed">Completed</a></span></p>
-        </div>
-        <div class="taskboxgeneral">
-            <p class="first">Task: <span>Brush Teeth</span></p>
-            <p class="first">Reward: <span>Go to park</span></p>
-            <p class="first">Day/Time: <span>11/12/2018 &nbsp; &nbsp; 4:00 PM</span></p>
-            <p class="second"><span><a href="" class="edit">Edit</a></span>  <span><a href="" class="delete">Delete</a></span> <span><a
-                    href="" class="completed">Completed</a></span></p>
-        </div>
     </div>
-    <div class="modalBox modal1">
-        <form action="">
+    <div class="modalBox modal1 createBox">
+        <form id="js-tasks-list-form">
             <label for="taskname">Choose The Task:</label>
             <select name="" id="taskname">
                 <option value="">Select a task name</option>
@@ -71,7 +50,7 @@
             <button type="submit">Assign</button>
         </form>
     </div>
-    <div class="modalBox modal2">
+    <div class="modalBox modal2 editBox">
         <form action="">
             <label for="task">Task Name:</label>
             <input type="text" id="task">
@@ -82,7 +61,7 @@
             <button type="submit">Assign</button>
         </form>
     </div>
-    <div class="modalBox modal3">
+    <div class="modalBox modal3 deleteBox">
         <p>Are you sure want to delete?</p>
         <button>Yes</button> &nbsp;&nbsp;&nbsp;<button>No</button>
     </div>
@@ -93,9 +72,34 @@
     </div>
 </div>
 <div class="overlay"></div>
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
         crossorigin="anonymous"></script>
-<script src="script.js"></script>
+<script src="js_with_ajax.js"></script>
 </body>
 </html>
+
+
+
+      <!-- <div class="taskboxgeneral">
+            <p class="first">Task: <span>Brush Teeth</span></p>
+            <p class="first">Reward: <span>Go to park</span></p>
+            <p class="first">Day/Time: <span>11/12/2018 &nbsp; &nbsp; 4:00 PM</span></p>
+            <p class="second"><span><a href="" class="edit">Edit</a></span>  <span><a href="" class="delete">Delete</a></span> <span><a
+                    href="" class="completed">Completed</a></span></p>
+        </div>
+        <div class="taskboxgeneral">
+            <p class="first">Task: <span>Brush Teeth</span></p>
+            <p class="first">Reward: <span>Go to park</span></p>
+            <p class="first">Day/Time: <span>11/12/2018 &nbsp; &nbsp; 4:00 PM</span></p>
+            <p class="second"><span><a href="" class="edit">Edit</a></span>  <span><a href="" class="delete">Delete</a></span> <span><a
+                    href="" class="completed">Completed</a></span></p>
+        </div>
+        <div class="taskboxgeneral">
+            <p class="first">Task: <span>Brush Teeth</span></p>
+            <p class="first">Reward: <span>Go to park</span></p>
+            <p class="first">Day/Time: <span>11/12/2018 &nbsp; &nbsp; 4:00 PM</span></p>
+            <p class="second"><span><a href="" class="edit">Edit</a></span>  <span><a href="" class="delete">Delete</a></span> <span><a
+                    href="" class="completed">Completed</a></span></p>
+        </div> -->

@@ -8,7 +8,6 @@ const { Task } = require('../models/task');
 
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
-const middleware = require("../middleware/index");
 
 mongoose.Promise = global.Promise;
 
@@ -28,21 +27,33 @@ router.get('/', (req, res) => {
 });
 
 //Show an individual task
-router.get('/:id', (req, res) => {
+router.get('/task/:id', (req, res) => {
   Task
     .findById(req.params.id)
     .then(task => res.json(task.serialize()))
     .catch(err => {
       console.log(req.params.id);
       console.error(err);
-      res.status(500).json({error: 'something went wrong'});
+      res.status(500).json({error: 'something went wrong! Cannot show an individual task'});
     });
 });
 
+router.get('/complete', (req, res) => {
+  Task
+    .find({"complete":true})
+    .then(tasks => {
+      res.json({ tasks: tasks.map( task => task.serialize())})
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({error: 'something went wrong cannot show completed tasks'});
+    })
+});
+
 //Create a task
-router.post('/tasks', (req, res) => {
+router.post('/', (req, res) => {
     console.log(`req.body is ${req.body}`);
-    const requiredFields = ['name', 'reward', 'complete'];
+    const requiredFields = ['taskName', 'rewardType', 'complete', 'created'];
     for(let i=0; i<requiredFields.length; i++){
         const field = requiredFields[i];
         if(!(field in req.body)){
@@ -52,24 +63,25 @@ router.post('/tasks', (req, res) => {
         }
   }
   Task.create({
-    name: req.body.name,
-    reward: req.body.reward,
-    complete: req.body.complete
+    taskName: req.body.taskName,
+    rewardType: req.body.rewardType,
+    complete: req.body.complete,
+    created: req.body.created
   })
   .then(Task  => { 
     res.status(201).json(Task.serialize());
   })
   .catch(err => {
     console.log(err);
-    res.status(500).json({error: 'something went wrong'});
+    res.status(500).json({error: 'something went wrong! Cannot create a task'});
   });
 })
 
 //Update a task 
-router.put('/id', (req, res) => {
+router.put('/task/:id', (req, res) => {
     console.log(req.body);
     const toUpdate = {};
-    const updateableFields = ['name', 'reward', 'complete'];
+    const updateableFields = ['taskName', 'rewardType', 'complete', 'created'];
 
     updateableFields.forEach(field => {
       if (field in req.body) {
@@ -78,18 +90,17 @@ router.put('/id', (req, res) => {
     })
     Task
       .findByIdAndUpdate(req.params.id, { $set: toUpdate})
-      .then(match => res.status(204).end()
-              )  
-      .catch(err => res.status(500).json({error: 'something went wrong'}));
+      .then(task => res.status(204).end())  
+      .catch(err => res.status(500).json({error: 'something went wrong! Cannot update a task'}));
 });
 
 //Delete a task 
-router.delete('/id',  (req, res) => {
+router.delete('/task/:id',  (req, res) => {
     console.log(req.params.id);
     Task
     .findByIdAndDelete(req.params.id)
-    .then(match => res.status(204).end())
-    .catch(err => res.status(500).json({error: 'something went wrong'}));
+    .then(task => res.status(204).end())
+    .catch(err => res.status(500).json({error: 'something went wrong! Cannot delete a task'}));
   });
 
 module.exports = router;

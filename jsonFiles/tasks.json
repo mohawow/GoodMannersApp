@@ -1,5 +1,0 @@
-[ 
-    {"_id":ObjectId("000000000000000000000004"), "name":"Please choose task1", "reward":ObjectId("0000000000000000000000010"), "completed":"true"},
-    {"_id":ObjectId("000000000000000000000005"), "name":"Please choose task2", "reward":ObjectId("0000000000000000000000011"), "completed":"false"},
-    {"_id":ObjectId("000000000000000000000006"), "name":"Please choose task3", "reward":ObjectId("0000000000000000000000012"), "completed":"true"}, 
-]

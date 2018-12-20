@@ -56,9 +56,10 @@ HW: (redo addRewardItem)
 
 npx kill-port 27017
 
-mongoimport --db good-manners-app --collection users --drop --file ~/thinkful_projects/GoodMannersApp-client-side/users.json --jsonArray
+mongoimport --db good-manners-app --collection users --drop --file ~/thinkful_projects/GoodMannersApp-client-side/tasks.json --jsonArray
 
 
-mongoimport --db good-manners-app --collection users --drop --file ~/thinkful_projects/GoodMannersApp-client-side/seed-data.json 
+mongoimport --db good-manners-app --collection tasks --drop --file ~/thinkful_projects/GoodMannersApp/user.json --jsonArray
 
 
+mongoimport --db good-manners-app --collection rewards --file ~/thinkful_projects/GoodMannersApp/rewards.json --jsonArray

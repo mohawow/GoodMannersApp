@@ -3,94 +3,45 @@ const app = express();
 const router = express.Router();
 const mongoose = require('mongoose');
 const {Reward} = require('../models/reward');
-const {rewardType} = require('../models/rewardType');
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 
-const middleware = require("../middleware/index");
 mongoose.Promise = global.Promise;
 
-//Show all rewards
-router.get('/rewards',  (req, res) => {
-  Reward
-      .find()
-    .then(Reward => {
-        res.json({
-          Reward: Reward.map(reward => reward.serialize())
-        });
+//Show all completed tasks
+router.get('/',  (req, res) => {
+  Task
+      .find({"complete":"true"})
+     .then(tasks => {
+        res.json({ tasks: tasks.map( task => task.serialize())
+      });
     })
     .catch(err => {
         console.error(err);
-        res.status(500).json({error: 'something went wrong'});
+        res.status(500).json({error: 'something went wrong cannot show completed tasks'});
     });
 });
 
-//Show an individual reward
-router.get('/reward/:id', (req, res) => {
+//Show an individual completed task
+router.get('/:id', (req, res) => {
   Reward
     .findById(req.params.id)
     .then(reward => res.json(reward.serialize()))
     .catch(err => {
       console.error(err);
-      res.status(500).json({error: 'something went wrong'});
+      res.status(500).json({error: 'something went wrong! Cannot an individual completed task'});
     });
 });
 
-//Create a new reward
-router.post('/reward', (req, res) => {
-    console.log(req.body);
-    const requiredFields = ['type'];
-    for(let i=0; i<requiredFields.length; i++){
-        const field = requiredFields[i];
-        if(!(field in req.body)){
-            const message = `Missing ${field} in request body`;
-            console.error(message);
-            return res.status(400).send(message);
-        }
-  }
-  Reward.create({
-    type: req.body.type, 
-  })
-  .then(reward => res.status(201).json(type.serialize()))
-  .catch(err => {
-    console.log(err);
-    res.status(500).json({error: 'something went wrong'});
-  });
-})
-
-//Update a reward
-router.put('/reward/:id',  (req, res) => {
-  if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {  
-    const message =
-      `Request path id (${req.params.id}) and request body id ` +
-      `(${req.body.id}) must match`;
-    console.error(message);
-    return res.status(400).json({ message: message });
-  }
-    const toUpdate = {};
-    const updateableFields = ["type"];
-
-    updateableFields.forEach(field => {
-      if (field in req.body) {
-        toUpdate[field] = req.body[field];
-      }
-    });
-      Reward
-      .findByIdAndUpdate(req.params.id, {$set: toUpdate})
-      .then(reward => res.status(204).end())
-      .catch(err => res.status(500).json({ message: "Internal server error" }));
-    }
-);
 
 
-//Delete a reward 
+//Delete a completed tasks
 router.delete('/:id', (req, res) => {
     console.log(req.params.id);
     Reward
     .findByIdAndRemove(req.params.id)
     .then(reward => res.status(204).end())
-    .catch(err => res.status(500).json({message: "Internal server error"}));
+    .catch(err => res.status(500).json({message: 'something went wrong! Cannot delete completed task'}));
   });
-
 
 module.exports = router;

@@ -5,13 +5,19 @@ mongoose.Promise = global.Promise;
 
 // Just Reward and it's stamp
 const rewardSchema = mongoose.Schema({
-	rewardType:{type: mongoose.Schema.Types.ObjectId, ref:"RewardType"},
+    taskName: {type: mongoose.Schema.Types.ObjectId, ref:"Task"},
+	rewardType:{type: mongoose.Schema.Types.ObjectId, ref:"Task"},
+    complete:{type:Boolean, required: true},
+    created: {type: Date, default: Date.now},
 });
-rewardSchema.set('timestamps', true);
+
 rewardSchema.methods.serialize = function () {
     return {
         id: this._id,
-        rewardType: this.rewardType
+        taskName: this.taskName,
+        rewardType: this.rewardType,
+        complete:this.complete,
+        created: this.created
     };
 };
 

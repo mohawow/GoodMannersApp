@@ -1,0 +1,20 @@
+[
+    {
+        "_id":ObjectId("507f1f77bcf86cd799439004"),
+        "taskName": "Go to bed on-time",
+        "rewardType": "Go to the movies",
+        "complete": "true"
+    },
+    {
+        "_id":ObjectId("507f1f77bcf86cd799439005"),
+        "taskName": "Finish cleaning the room",
+        "rewardType": "Go to the park",
+        "complete": "false"
+    },
+    {
+        "_id":ObjectId("507f1f77bcf86cd799439006"),
+        "taskName": "Behave well in school",
+        "rewardType": "Go to Disnyland",
+        "complete": "true"
+    }
+]

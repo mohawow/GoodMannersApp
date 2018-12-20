@@ -15,21 +15,18 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-const userRouter = require('./routes/user');
 const taskRouter = require('./routes/tasks');
 const rewardRouter = require('./routes/rewards')
-const rewardTypeRouter = require('./routes/rewardType')
+
 const { DATABASE_URL, PORT } = require('./config');
 
 app.use(express.static('public'));
-app.use('/users', userRouter);
-app.use('/tasks', taskRouter)
-app.use('/rewards', rewardRouter)
-app.use('/completed', rewardTypeRouter)
 
+app.use('/myTasks', taskRouter)
+app.use('/completedTasks', rewardRouter)
 
 app.use('*', (req, res) => {
-    return res.status(404).json({ message: 'Not Found' });
+    return res.status(404).json({ message: 'Not Found'});
 });
 
 
