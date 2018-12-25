@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
 });
 
 //Show an individual task
-router.get('/task/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   Task
     .findById(req.params.id)
     .then(task => res.json(task.serialize()))
@@ -52,21 +52,22 @@ router.get('/complete', (req, res) => {
 
 //Create a task
 router.post('/', (req, res) => {
-    console.log(`req.body is ${req.body}`);
-    const requiredFields = ['taskName', 'rewardType', 'complete', 'created'];
+    console.log(req.body.taskname);
+    const requiredFields = ['taskname', 'reward', 'complete'];
     for(let i=0; i<requiredFields.length; i++){
         const field = requiredFields[i];
         if(!(field in req.body)){
             const message = `Missing ${field} in request body`;
             console.error(message);
-            return res.status(400).send(message);
+            return res.status(400).send(req.body);
         }
   }
   Task.create({
-    taskName: req.body.taskName,
-    rewardType: req.body.rewardType,
+    taskName: req.body.taskname,
+    rewardType: req.body.reward,
     complete: req.body.complete,
-    created: req.body.created
+    created_at: req.body.created_at,
+      update_at: req.body.update_at
   })
   .then(Task  => { 
     res.status(201).json(Task.serialize());
@@ -78,24 +79,37 @@ router.post('/', (req, res) => {
 })
 
 //Update a task 
-router.put('/task/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     console.log(req.body);
     const toUpdate = {};
-    const updateableFields = ['taskName', 'rewardType', 'complete', 'created'];
-
+    const updateableFields = ['taskName', 'rewardType'];
     updateableFields.forEach(field => {
       if (field in req.body) {
         toUpdate[field] = req.body[field];
       }
-    })
+    });
     Task
       .findByIdAndUpdate(req.params.id, { $set: toUpdate})
       .then(task => res.status(204).end())  
       .catch(err => res.status(500).json({error: 'something went wrong! Cannot update a task'}));
 });
-
+//Complete a task
+router.put('/complete/:id', (req, res) => {
+    console.log(req.body);
+    const toUpdate = {};
+    const updateableFields = ['complete'];
+    updateableFields.forEach(field => {
+        if (field in req.body) {
+            toUpdate[field] = req.body[field];
+        }
+    });
+    Task
+        .findByIdAndUpdate(req.params.id, { $set: toUpdate})
+        .then(task => res.status(204).end())
+        .catch(err => res.status(500).json({error: 'something went wrong! Cannot update a task'}));
+});
 //Delete a task 
-router.delete('/task/:id',  (req, res) => {
+router.delete('/:id',  (req, res) => {
     console.log(req.params.id);
     Task
     .findByIdAndDelete(req.params.id)

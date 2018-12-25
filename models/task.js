@@ -7,8 +7,9 @@ const taskSchema = mongoose.Schema({
     taskName: { type: String, required: true },
     rewardType:{type: String, required: true},
     complete:{type:Boolean, default:false},
+    create_at:{type:Date, default:Date.now()},
+    update_at:{type:Date, default:Date.now()},
 });
-taskSchema.set('timestamps', true)
 
 taskSchema.methods.serialize = function () {
     return {
@@ -16,7 +17,8 @@ taskSchema.methods.serialize = function () {
         taskName: this.taskName,
         rewardType: this.rewardType,
         complete: this.complete,
-        created: this.created
+        create_at: this.create_at,
+        update_at: this.update_at
     };
 };
 

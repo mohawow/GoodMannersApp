@@ -10,38 +10,38 @@
 </head>
 <body>
 <div class="wraper">
-    <div class="header">
+    <header class="header">
         <div class="logo">
-            <img src=" " alt="">
+            <img src="logo.png" alt="">
         </div>
         <div class="menuitems">
             <ul>
                 <li><a href="">Home</a></li>
-                <li><a href="">Archive</a></li>
                 <li><a href="">Dashboard</a></li>
                
             </ul>
         </div>
-    </div>
-    <div class="mainbody">
+    </header>
+    <main class="mainbody">
         <div class="taskboxadd">
             <span>+</span>
         </div>
-        <div class="taskboxgeneral">
-            <p class="first">Task: <span>Brush Teeth</span></p>
-            <p class="first">Reward: <span>Go to park</span></p>
-            <p class="first">Day/Time: <span>11/12/2018 &nbsp; &nbsp; 4:00 PM</span></p>
-            <p class="second"><span><a href="" class="edit">Edit</a></span>  <span><a href="" class="delete">Delete</a></span> <span><a
-                    href="" class="completed">Completed</a></span></p>
-        </div>
-    </div>
-    <div class="modalBox modal1 createBox">
-        <form id="js-tasks-list-form">
+
+    </main>
+    <section class="modalBox modal1 createBox">
+        <form id="js-tasks-list-form" action="" method="POST">
             <label for="taskname">Choose The Task:</label>
             <select name="" id="taskname">
                 <option value="">Select a task name</option>
-                <option value="">task 1</option>
-                <option value="">task 2</option>
+                <option value="Say “Please” when asking">1. Say “Please” when asking</option>
+                <option value="Say “Thank you” when receiving">2. Say “Thank you” when receiving</option>
+                <option value="Show respect for others and elders">3. Show respect for others and elders</option>
+                <option value="Don’t use bad language">4. Don’t use bad language</option>
+                <option value="Ask permission before touching or taking things">5. Ask permission before touching or taking things</option>
+                <option value="Respect your own and other people’s property">7. Respect your own and other people’s property</option>
+                <option value="Return things you have borrowed from others">8. Return things you have borrowed from others</option>
+                <option value="Consider other people’s privacy">9. Consider other people’s privacy</option>
+                <option value="Clean up after yourself.">10. Clean up after yourself.</option>         
             </select>
             <br>
             <label for="reward">Create Reward:</label>
@@ -49,8 +49,8 @@
             <br>
             <button type="submit">Assign</button>
         </form>
-    </div>
-    <div class="modalBox modal2 editBox">
+    </section>
+    <section class="modalBox modal2 editBox">
         <form action="">
             <label for="task">Task Name:</label>
             <input type="text" id="task">
@@ -60,46 +60,23 @@
             <br>
             <button type="submit">Assign</button>
         </form>
-    </div>
-    <div class="modalBox modal3 deleteBox">
+    </section>
+    <section class="modalBox modal3 deleteBox">
         <p>Are you sure want to delete?</p>
-        <button>Yes</button> &nbsp;&nbsp;&nbsp;<button>No</button>
-    </div>
-    <div class="modalBox modal4">
+        <button id="confirmdelete">Yes</button> &nbsp;&nbsp;&nbsp;<button id="deletnotconfirm">No</button>
+    </section>
+    <section class="modalBox modal4">
         <p>Congratulations! Task Completed.</p>
         <p>Reward Granted.</p>
-        <button>Ok</button>
-    </div>
+        <button class="completeTaskButton">Ok</button>
+    </section>
 </div>
 <div class="overlay"></div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 <script src="js_with_ajax.js"></script>
 </body>
 </html>
-
-
-
-      <!-- <div class="taskboxgeneral">
-            <p class="first">Task: <span>Brush Teeth</span></p>
-            <p class="first">Reward: <span>Go to park</span></p>
-            <p class="first">Day/Time: <span>11/12/2018 &nbsp; &nbsp; 4:00 PM</span></p>
-            <p class="second"><span><a href="" class="edit">Edit</a></span>  <span><a href="" class="delete">Delete</a></span> <span><a
-                    href="" class="completed">Completed</a></span></p>
-        </div>
-        <div class="taskboxgeneral">
-            <p class="first">Task: <span>Brush Teeth</span></p>
-            <p class="first">Reward: <span>Go to park</span></p>
-            <p class="first">Day/Time: <span>11/12/2018 &nbsp; &nbsp; 4:00 PM</span></p>
-            <p class="second"><span><a href="" class="edit">Edit</a></span>  <span><a href="" class="delete">Delete</a></span> <span><a
-                    href="" class="completed">Completed</a></span></p>
-        </div>
-        <div class="taskboxgeneral">
-            <p class="first">Task: <span>Brush Teeth</span></p>
-            <p class="first">Reward: <span>Go to park</span></p>
-            <p class="first">Day/Time: <span>11/12/2018 &nbsp; &nbsp; 4:00 PM</span></p>
-            <p class="second"><span><a href="" class="edit">Edit</a></span>  <span><a href="" class="delete">Delete</a></span> <span><a
-                    href="" class="completed">Completed</a></span></p>
-        </div> -->

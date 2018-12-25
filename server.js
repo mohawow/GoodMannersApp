@@ -16,15 +16,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 const taskRouter = require('./routes/tasks');
-const rewardRouter = require('./routes/rewards')
 
 const { DATABASE_URL, PORT } = require('./config');
 
 app.use(express.static('public'));
 
 app.use('/myTasks', taskRouter)
-app.use('/completedTasks', rewardRouter)
-
+app.use('/myTasks/complete', taskRouter)
 app.use('*', (req, res) => {
     return res.status(404).json({ message: 'Not Found'});
 });
