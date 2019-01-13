@@ -1,7 +1,7 @@
 @import "https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i";
+
 body {
-    background-image: url("children.png");
-    background-repeat:repeat;
+    background: (#add8e6);
 }
 .overlay {
     background: rgba(0, 139, 139, 0.8);
@@ -20,24 +20,26 @@ body {
 .wraper {
     margin: 0 auto;
     padding: 0;
-    width: 100%;
+    width: 1174px;
     font-family: "Lato", sans-serif;
 }
 
 .wraper .header {
     width: 100%;
     background: darkcyan;
-    min-height: 100px;
-    padding-top: 30px;
+    min-height: 120px;
+    padding-top: 5px;
 }
 
 .wraper .header .logo {
     float: left;
-    text-align: center;
+    text-align: left;
+    max-width: 50%;
+    padding-left: 10px;
 }
 
 .wraper .header .logo img {
-    width: 90%;
+    width: 25%;
 }
 
 .wraper .header .menuitems {
@@ -56,7 +58,7 @@ body {
 .wraper .header .menuitems ul li a {
     padding: 10px 15px;
     text-decoration: none;
-    color: #fff;
+    color: rgb(240, 221, 11);
     font-size: 18px;
     text-transform: capitalize;
 }
@@ -67,8 +69,8 @@ body {
 
 .wraper .mainbody .taskboxadd {
     padding: 30px 70px;
-    background: rgba(0, 139, 139, 1);
-    width: 400px;
+    background: rgba(0, 139, 139, 0.5);
+    width: 500px;
     text-align: center;
     margin: 20px auto;
     display: flex;
@@ -80,18 +82,17 @@ body {
     font-size: 30px;
     font-weight: bold;
     margin: auto;
-    color: white;
+    color: rgb(125, 186, 204);
 }
 
 .wraper .mainbody .taskboxadd:hover,
 .wraper .mainbody .taskboxgeneral:hover {
-    background: rgba(0, 139, 139, 0.9);
+    background: rgba(0, 139, 139);
 }
-
 .wraper .mainbody .taskboxgeneral {
     padding: 20px;
-    background: rgba(0, 139, 139, 1);
-    width: 300px;
+    background: rgba(0, 139, 139, 0.7);
+    width: 600px;
     margin: 20px auto;
     border-radius: 4px;
     cursor: pointer;
@@ -117,7 +118,7 @@ body {
 
 .wraper .mainbody .taskboxgeneralexpended {
     padding: 20px;
-    background: rgba(0, 139, 139, 0.9);
+    background: rgba(8, 89, 89, 0.9);
     width: 470px;
     margin: 20px auto;
     border-radius: 4px;
@@ -161,57 +162,6 @@ body {
 }
 
 .wraper .mainbody .taskboxgeneralexpended .second span:nth-child(even) {
-    border-left: 1px solid #f1f1f1;
-    border-right: 1px solid #f1f1f1;
-}
-
-.wraper .mainbody .taskboxgeneralCompleted {
-    padding: 20px;
-    background: lightgoldenrodyellow;
-    width: 300px;
-    margin: 20px auto;
-    border-radius: 4px;
-    transition: 400ms ease;
-    border: 2px solid #ccc;
-}
-
-.wraper .mainbody .taskboxgeneralCompleted .first {
-    color: darkblue;
-    font-size: 20px;
-    font-weight: bold;
-    text-transform: capitalize;
-}
-
-.wraper .mainbody .taskboxgeneralCompleted .first span {
-    font-size: 22px;
-    font-weight: 300;
-    text-transform: capitalize;
-}
-
-.wraper .mainbody .taskboxgeneralCompleted .second {
-    color: darkblue;
-    font-size: 20px;
-    font-weight: bold;
-    text-transform: capitalize;
-    text-align: center;
-    margin-bottom: 0;
-    display: block;
-}
-
-.wraper .mainbody .taskboxgeneralCompleted .second span a {
-    font-size: 22px;
-    font-weight: 300;
-    text-transform: capitalize;
-    padding: 5px;
-    text-decoration: none;
-    color: darkblue;
-}
-
-.wraper .mainbody .taskboxgeneralCompleted .second span a:hover {
-    color: blueviolet;
-}
-
-.wraper .mainbody .taskboxgeneralCompleted .second span:nth-child(even) {
     border-left: 1px solid #f1f1f1;
     border-right: 1px solid #f1f1f1;
 }
@@ -294,40 +244,4 @@ body {
     text-align: center;
     color: rgba(0, 139, 139, 0.98);
     font-size: 18px;
-}
-
-@media (min-width: 1025px) {
-    .wraper .mainbody .taskboxgeneral {
-        width: 500px;
-    }
-    .wraper .mainbody .taskboxgeneralexpended {
-        width: 600px;
-    }
-    .wraper .mainbody .taskboxgeneralCompleted {
-        width: 500px;
-    }
-}
-
-@media (max-width: 480px) {
-    .wraper .header .logo {
-        float: none;
-        text-align: center;
-    }
-    
-    .wraper .header .logo img {
-        width: 90%;
-    }
-    
-    .wraper .header .menuitems {
-        float: none;
-        padding-right: 30px;
-    }
-
-    .wraper .header {
-        width: 100%;
-        background: darkcyan;
-        min-height: 200px;
-        padding-top: 30px;
-    }
-
 }

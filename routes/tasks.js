@@ -53,7 +53,7 @@ router.get('/complete', (req, res) => {
 //Create a task
 router.post('/', (req, res) => {
     console.log(req.body.taskname);
-    const requiredFields = ['taskname', 'reward', 'complete'];
+    const requiredFields = ['taskName', 'rewardType', 'complete'];
     for(let i=0; i<requiredFields.length; i++){
         const field = requiredFields[i];
         if(!(field in req.body)){
@@ -63,11 +63,11 @@ router.post('/', (req, res) => {
         }
   }
   Task.create({
-    taskName: req.body.taskname,
-    rewardType: req.body.reward,
+    taskName: req.body.taskName,
+    rewardType: req.body.rewardType,
     complete: req.body.complete,
-    created_at: req.body.created_at,
-      update_at: req.body.update_at
+    // create_at: req.body.create_at,
+    // update_at: req.body.update_at
   })
   .then(Task  => { 
     res.status(201).json(Task.serialize());
