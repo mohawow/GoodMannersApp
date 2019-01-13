@@ -4,6 +4,7 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require ('body-parser');
+const common = require('./public/JS_with_ajax');
 
 mongoose.Promise = global.Promise;
 
@@ -20,7 +21,7 @@ const taskRouter = require('./routes/tasks');
 const { DATABASE_URL, PORT } = require('./config');
 
 app.use(express.static('public'));
-
+app.use(common);
 app.use('/myTasks', taskRouter)
 app.use('/myTasks/complete', taskRouter)
 app.use('*', (req, res) => {
