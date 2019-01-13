@@ -19,7 +19,7 @@ describe("static routes", function() {
       return closeServer();
     });
   
-    it("should get index.html", function() {
+    it("should get task.html", function() {
       return chai
         .request(app)
         .get("/")

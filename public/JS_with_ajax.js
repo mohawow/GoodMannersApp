@@ -43,9 +43,14 @@ function addTask() {
             dataType: 'json',
             url: TASKS_LIST_URL,
             success: function(data) {
+                console.log(data);
                 $('.modal1').css('display','none');
                 $('.overlay').css('display','none');
                 window.location.reload();
+            },
+            error:function (xhr, ajaxOptions, thrownError) {
+              console.log(thrownError);
+              console.log(ajaxOptions);
             }
         });
     });
@@ -53,12 +58,15 @@ function addTask() {
 function getTasks() {
     $.getJSON( TASKS_LIST_URL, function( data ) {
         console.log(data);
-        $.each(data.tasks,function (index,item) {
+        $.each(data.tasks.reverse(),function (index,item) {
+            var d=new Date(item.create_at);
+            var fdate=d.getDate()+"-"+(d.getMonth() + 1)+"-"+d.getFullYear()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+            console.log(fdate);
             if(!item.complete){
                 var itr=  `<div class="taskboxgeneral">` +
                     `<p class="first">Task: <span>${item.taskName}</span></p>` +
                     `<p class="first">Reward: <span>${item.rewardType}</span></p>` +
-                    `<p class="first">Day/Time: <span> ${item.create_at} </span></p>` +
+                    `<p class="first">Day/Time: <span> ${fdate} </span></p>` +
                     `<p class="second"><span><a href="${item.id}" class="edit">Edit</a></span>  <span><a href="${item.id}"  class="delete">Delete</a></span> <span><a href="${item.id}" class="completed">Completed</a></span></p>` +
                     "</div>";
                 $('.mainbody').append(itr);
@@ -66,12 +74,15 @@ function getTasks() {
             console.log(item)
         })
         $.each(data.tasks,function (index,item) {
+            var d=new Date(item.create_at);
+            var fdate=d.getDate()+"-"+(d.getMonth() + 1)+"-"+d.getFullYear()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+            console.log(fdate);
             if(item.complete){
                 var itr=  `<div class="taskboxgeneralCompleted">` +
                     `<p class="first text-center">Completed Task</span></p>` +
                     `<p class="first">Task: <span>${item.taskName}</span></p>` +
                     `<p class="first">Reward: <span>${item.rewardType}</span></p>` +
-                    `<p class="first">Day/Time: <span> ${item.create_at} </span></p>` +
+                    `<p class="first">Day/Time: <span> ${fdate} </span></p>` +
                     `<p class="second"><span><a href="${item.id}"  class="delete">Delete</a></span> </p>` +
                     "</div>";
                 $('.mainbody').append(itr);

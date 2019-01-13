@@ -53,7 +53,7 @@ router.get('/complete', (req, res) => {
 //Create a task
 router.post('/', (req, res) => {
     console.log(req.body.taskname);
-    const requiredFields = ['taskName', 'rewardType', 'complete'];
+    const requiredFields = ['taskname', 'reward', 'complete'];
     for(let i=0; i<requiredFields.length; i++){
         const field = requiredFields[i];
         if(!(field in req.body)){
@@ -61,21 +61,21 @@ router.post('/', (req, res) => {
             console.error(message);
             return res.status(400).send(req.body);
         }
-  }
-  Task.create({
-    taskName: req.body.taskName,
-    rewardType: req.body.rewardType,
-    complete: req.body.complete,
-    // create_at: req.body.create_at,
-    // update_at: req.body.update_at
-  })
-  .then(Task  => { 
-    res.status(201).json(Task.serialize());
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json({error: 'something went wrong! Cannot create a task'});
-  });
+    }
+    Task.create({
+        taskName: req.body.taskname,
+        rewardType: req.body.reward,
+        complete: req.body.complete,
+        created_at: req.body.created_at,
+        update_at: req.body.update_at
+    })
+        .then(Task  => {
+            res.status(201).json(Task.serialize());
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({error: 'something went wrong! Cannot create a task'});
+        });
 })
 
 //Update a task 
