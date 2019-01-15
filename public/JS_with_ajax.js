@@ -1,5 +1,5 @@
 let serverBase = "https://arcane-escarpment-92846.herokuapp.com";
-const TASKS_LIST_URL = serverBase + "myTasks";
+const TASKS_LIST_URL = serverBase + "/myTasks";
 console.log(TASKS_LIST_URL);
 function allClickEvents() {
     $(document).on('click', function() {
