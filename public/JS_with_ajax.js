@@ -1,11 +1,4 @@
-let myTasksTemplate =
-    '<div class="taskboxgeneral">' +
-    '<p class="first">Reward: <span></span></p>' +
-    '<p class="first">Day/Time: <span> &nbsp; &nbsp; </span></p>' +
-    '<p class="second"><span><a href="" class="edit">Edit</a></span>  <span><a href="" class="delete">Delete</a></span> <span><a href="" class="completed">Completed</a></span></p>' +
-    "</div>";
-
-let serverBase = "http://localhost:8080/";
+let serverBase = "https://arcane-escarpment-92846.herokuapp.com";
 const TASKS_LIST_URL = serverBase + "myTasks";
 console.log(TASKS_LIST_URL);
 function allClickEvents() {
@@ -22,7 +15,6 @@ function allClickEvents() {
         $(this).addClass("taskboxgeneralexpended");
         event.stopPropagation();
     });
-
 };
 // put method  (Create)
 function addTask() {
