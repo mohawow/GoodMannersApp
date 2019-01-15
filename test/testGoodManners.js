@@ -4,8 +4,6 @@ const chai = require('chai');
 const expect = chai.expect;
 const chaiHttp = require('chai-http');
 const { app, runServer, closeServer } = require('../server');
-const { Task } = require('../models/task');
-const taskRouter = require('../routes/tasks');
 const { TEST_DATABASE_URL } = require('../config');
 
 
@@ -55,7 +53,7 @@ describe("Get all tasks", function() {
     });
 });
 
-describe("add atask", function() {
+describe("add a task", function() {
     before(function() {
       return runServer(TEST_DATABASE_URL);
     });

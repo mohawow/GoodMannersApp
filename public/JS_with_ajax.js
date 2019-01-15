@@ -60,7 +60,7 @@ function getTasks() {
         console.log(data);
         $.each(data.tasks.reverse(),function (index,item) {
             var d=new Date(item.create_at);
-            var fdate=d.getDate()+"-"+(d.getMonth() + 1)+"-"+d.getFullYear()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+            var fdate=(d.getMonth() + 1)+"-"+d.getDate()+"-"+d.getFullYear()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
             console.log(fdate);
             if(!item.complete){
                 var itr=  `<div class="taskboxgeneral">` +
