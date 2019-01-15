@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Good Manners App</title>
+</head>
+<body>
+<div class="wraper">
+    <header class="header">
+        <div class="logo">
+            <img src="GoodMannersLogo.png" alt="">
+        </div>
+        <div class="menuitems">
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/task.html">Dashboard</a></li>
+               
+            </ul>
+        </div>
+    </header>
+    <main class="mainbody">
+        <div class="taskboxadd">
+            <span>+ Add a task</span>
+        </div>
+
+    </main>
+    <section class="modalBox modal1 createBox">
+        <form id="js-tasks-list-form" action="" method="POST">
+            <label for="taskname">Choose The Task:</label>
+            <select name="" id="taskname">
+                <option value="">Select a task name</option>
+                <option value="Say “Please” when asking">1. Say “Please” when asking</option>
+                <option value="Say “Thank you” when receiving">2. Say “Thank you” when receiving</option>
+                <option value="Show respect for others and elders">3. Show respect for others and elders</option>
+                <option value="Don’t use bad language">4. Don’t use bad language</option>
+                <option value="Ask permission before touching or taking things">5. Ask permission before touching or taking things</option>
+                <option value="Respect your own and other people’s property">7. Respect your own and other people’s property</option>
+                <option value="Return things you have borrowed from others">8. Return things you have borrowed from others</option>
+                <option value="Consider other people’s privacy">9. Consider other people’s privacy</option>
+                <option value="Clean up after yourself.">10. Clean up after yourself.</option>         
+            </select>
+            <br>
+            <label for="reward">Create Reward:</label>
+            <input type="text" id="reward">
+            <br>
+            <button type="submit">Assign</button>
+        </form>
+    </section>
+    <section class="modalBox modal2 editBox">
+        <form action="">
+            <label for="task">Task Name:</label>
+            <input type="text" id="task">
+            <br>
+            <label for="reward1">Create Reward:</label>
+            <input type="text" id="reward1">
+            <br>
+            <button type="submit">Assign</button>
+        </form>
+    </section>
+    <section class="modalBox modal3 deleteBox">
+        <p>Are you sure want to delete?</p>
+        <button id="confirmdelete">Yes</button> &nbsp;&nbsp;&nbsp;<button id="deletnotconfirm">No</button>
+    </section>
+    <section class="modalBox modal4">
+        <p>Congratulations! Task Completed.</p>
+        <p>Reward Granted.</p>
+        <button class="completeTaskButton">Ok</button>
+    </section>
+</div>
+<div class="overlay"></div>
+
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="/js_with_ajax.js"></script>
+</body>
+</html>
