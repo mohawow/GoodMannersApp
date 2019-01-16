@@ -21,7 +21,7 @@ function addTask() {
     $('#js-tasks-list-form').on('submit',function () {
         event.preventDefault();
         let data = {
-            taskname: $('#taskname').val(),
+            taskName: $('#taskname').val(),
             reward: $('#reward').val(),
             complete: false,
             created_at: new Date().getDate(),
