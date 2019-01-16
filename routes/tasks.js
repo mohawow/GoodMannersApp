@@ -52,7 +52,7 @@ router.get('/complete', (req, res) => {
 //Create a task
 router.post('/', (req, res) => {
     console.log(req.body.taskname);
-    const requiredFields = ['taskname', 'reward', 'complete'];
+    const requiredFields = ['taskName', 'reward', 'complete'];
     for(let i=0; i<requiredFields.length; i++){
         const field = requiredFields[i];
         if(!(field in req.body)){
@@ -62,7 +62,7 @@ router.post('/', (req, res) => {
         }
     }
     Task.create({
-        taskName: req.body.taskname,
+        taskName: req.body.taskName,
         rewardType: req.body.reward,
         complete: req.body.complete,
         created_at: req.body.created_at,

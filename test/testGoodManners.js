@@ -62,7 +62,7 @@ describe("add a task", function() {
       return closeServer();
     });
     it("should add a task on POST", function() {
-    const newTask = { taskName: "Sleep on time", rewardType: "Go to park", complete: false };
+    const newTask = { taskName: "Sleep on time", reward: "Go to park", complete: false };
         return chai
             .request(app)
             .post("/myTasks")

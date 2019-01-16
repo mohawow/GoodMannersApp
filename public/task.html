@@ -10,25 +10,25 @@
 </head>
 <body>
 <div class="wraper">
-    <header class="header">
+    <header class="header" role="banner">
         <div class="logo">
-            <img src="GoodMannersLogo.png" alt="">
+            <img src="GoodMannersLogo.png" alt="Good Manners Logo">
         </div>
-        <div class="menuitems">
+        <nav class="menuitems" role="navigation">
             <ul>
                 <li><a href="/index.html">Home</a></li>
                 <li><a href="/task.html">Dashboard</a></li>
                
             </ul>
-        </div>
+        </nav>
     </header>
-    <main class="mainbody">
+    <main class="mainbody" role="main">
         <div class="taskboxadd">
             <span>+ Add a task</span>
         </div>
 
     </main>
-    <section class="modalBox modal1 createBox">
+    <section class="modalBox modal1 createBox" role="article">
         <form id="js-tasks-list-form" action="" method="POST">
             <label for="taskname">Choose The Task:</label>
             <select name="" id="taskname">
@@ -50,7 +50,7 @@
             <button type="submit">Assign</button>
         </form>
     </section>
-    <section class="modalBox modal2 editBox">
+    <section class="modalBox modal2 editBox" role="article">
         <form action="">
             <label for="task">Task Name:</label>
             <input type="text" id="task">
@@ -61,7 +61,7 @@
             <button type="submit">Assign</button>
         </form>
     </section>
-    <section class="modalBox modal3 deleteBox">
+    <section class="modalBox modal3 deleteBox" role="article">
         <p>Are you sure want to delete?</p>
         <button id="confirmdelete">Yes</button> &nbsp;&nbsp;&nbsp;<button id="deletnotconfirm">No</button>
     </section>
